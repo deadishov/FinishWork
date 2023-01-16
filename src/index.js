@@ -1,8 +1,8 @@
 
 
-import getOne from './modules/one';
+import modal from './modules/modal';
 import getTwo from './modules/two';
 
 
-getOne();
+modal();
 getTwo();
