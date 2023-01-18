@@ -1,4 +1,4 @@
-const others = () => {
+export const others = () => {
     const scrollUpBtn = document.querySelector('.smooth-scroll')
 
     scrollUpBtn.style.display = 'none'
@@ -23,5 +23,3 @@ const others = () => {
 
     })
 };
-
-export default others;
