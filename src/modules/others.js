@@ -1,5 +1,6 @@
 const others = () => {
     const scrollUpBtn = document.querySelector('.smooth-scroll')
+
     scrollUpBtn.style.display = 'none'
 
     window.addEventListener('scroll', () => {
