@@ -1,8 +1,9 @@
-export const timer = ({ deadline, days, hours, minutes, seconds }) => {
-    const timerDays = document.querySelector(days)
-    const timerHours = document.querySelector(hours);
-    const timerMinutes = document.querySelector(minutes);
-    const timerSeconds = document.querySelector(seconds);
+export const timer = ({ deadline, days, hours, minutes, seconds, timerIndex }) => {
+
+    const timerDays = document.querySelectorAll(days)
+    const timerHours = document.querySelectorAll(hours);
+    const timerMinutes = document.querySelectorAll(minutes);
+    const timerSeconds = document.querySelectorAll(seconds);
     let idInterval;
 
     const getTimeRemaining = () => {
@@ -22,18 +23,18 @@ export const timer = ({ deadline, days, hours, minutes, seconds }) => {
 
 
         if (getTime.timeRemaining > 0) {
-            timerDays.textContent = getTime.days
-            timerHours.textContent = getTime.hours;
-            timerMinutes.textContent = getTime.minutes;
-            timerSeconds.textContent = getTime.seconds;
+            timerDays[timerIndex].textContent = getTime.days
+            timerHours[timerIndex].textContent = getTime.hours;
+            timerMinutes[timerIndex].textContent = getTime.minutes;
+            timerSeconds[timerIndex].textContent = getTime.seconds;
             if (getTime.days < 10) {
-                timerDays.textContent = '0' + getTime.days
+                timerDays[timerIndex].textContent = '0' + getTime.days
             } if (getTime.hours < 10) {
-                timerHours.textContent = '0' + getTime.hours;
+                timerHours[timerIndex].textContent = '0' + getTime.hours;
             } if (getTime.minutes < 10) {
-                timerMinutes.textContent = '0' + getTime.minutes;
+                timerMinutes[timerIndex].textContent = '0' + getTime.minutes;
             } if (getTime.seconds < 10) {
-                timerSeconds.textContent = '0' + getTime.seconds;
+                timerSeconds[timerIndex].textContent = '0' + getTime.seconds;
             }
         } else {
             clearInterval(idInterval);

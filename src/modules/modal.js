@@ -5,8 +5,6 @@ export const modal = () => {
     const servModal = document.querySelector('.services-modal')
     const servButtons = document.querySelectorAll('.service-button')
 
-    console.log(servButtons);
-
 
     const openCallBack = () => {
         callBackModal.style.display = 'block'
