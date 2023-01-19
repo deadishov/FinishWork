@@ -47,7 +47,6 @@ export const calc = () => {
             }
         })
 
-
     } else {
         return
     }

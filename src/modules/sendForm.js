@@ -1,5 +1,14 @@
 export const sendForm = ({ formName, calcData = [] }) => {
     const form = document.querySelector(formName)
+    const formElements = form.querySelectorAll('input')
+
+    form.addEventListener('input', (e) => {
+        if (e.target === formElements[0]) {
+            e.target.value = e.target.value.replace(/[^a-zа-я-]/gi, '')
+        } if (e.target === formElements[1]) {
+            e.target.value = e.target.value.replace(/[^\d+]/, '').substr(0, 16).trim()
+        }
+    })
 
 
     const sendData = (data) => {
@@ -25,7 +34,6 @@ export const sendForm = ({ formName, calcData = [] }) => {
                 if (calcTotal.value) {
                     formBody[elem.id] = calcTotal.value + ' RUB'
                 }
-                console.log(elem);
             }
         })
 
@@ -33,10 +41,13 @@ export const sendForm = ({ formName, calcData = [] }) => {
             formBody[key] = val
         })
 
-        console.log('submit');
+        if (formElements[0].value && formElements[1].value) {
+            sendData(formBody).then(data => {
+                console.log(data);
+            })
+        } else {
+            alert('Заполните оба поля формы!')
+        }
 
-        sendData(formBody).then(data => {
-            console.log(data);
-        })
     })
 }
