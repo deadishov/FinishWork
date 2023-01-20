@@ -20,7 +20,7 @@ export const slider = () => {
     sliders[5].append(benefitsItems[5])
 
 
-    const swiper = new Swiper(".swiper", {
+    const swiper = new Swiper(".benefits-inner.swiper", {
         modules: [Navigation],
         slidesPerView: 1,
         spaceBetween: 30,
@@ -34,12 +34,9 @@ export const slider = () => {
             prevEl: ".benefits__arrow--left",
         },
         breakpoints: {
-            768: {
+            576: {
                 slidesPerView: 3,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
+            }
         },
     });
 }

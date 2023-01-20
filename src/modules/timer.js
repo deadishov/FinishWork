@@ -38,7 +38,12 @@ export const timer = ({ deadline, days, hours, minutes, seconds, timerIndex }) =
             }
         } else {
             clearInterval(idInterval);
+            timerDays[timerIndex].textContent = '00'
+            timerHours[timerIndex].textContent = '00'
+            timerMinutes[timerIndex].textContent = '00'
+            timerSeconds[timerIndex].textContent = '00'
         }
     }
+    updateClock()
     idInterval = setInterval(updateClock, 1000);
 };

@@ -1913,11 +1913,6 @@ input.error {
   margin: 0 0 0 390px;
 }
 
-.benefits__item {
-  width: 100%;
-  max-width: 185px;
-}
-
 .benefits-arrows {
   display: flex;
   justify-content: space-between;
@@ -1984,9 +1979,12 @@ input.error {
 
 @media (min-width: 320px) {
   .benefits-wrap {
-    width: 100%;
     max-width: 576px;
-    /* margin: 0; */
+    margin: 0;
+  }
+
+  .benefits__item {
+    width: 100%;
   }
 }
 
@@ -1994,7 +1992,12 @@ input.error {
   .benefits-wrap {
     width: 100%;
     max-width: 576px;
-    /* margin: 0; */
+    margin: 0 0 0 390px;
+  }
+
+  .benefits__item {
+    width: 100%;
+    max-width: 185px;
   }
 }
 

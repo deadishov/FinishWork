@@ -5,11 +5,12 @@ import { slider } from './modules/slider'
 import { calc } from './modules/calc'
 import { timer } from './modules/timer'
 import { sendForm } from './modules/sendForm'
+import { sliderServices } from './modules/sliderServices'
 
 
 modal();
 others();
-slider()
+slider();
 calc()
 timer({
     deadline: '22 january 2023 21:00',
@@ -43,4 +44,5 @@ sendForm({
         }
     ]
 })
+sliderServices()
 
