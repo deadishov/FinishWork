@@ -9,10 +9,7 @@ import { sendForm } from './modules/sendForm'
 
 modal();
 others();
-slider({
-    slider: ".benefits-wrap",
-    slide: ".benefits__item",
-})
+slider()
 calc()
 timer({
     deadline: '22 january 2023 21:00',

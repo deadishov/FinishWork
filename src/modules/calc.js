@@ -19,7 +19,7 @@ export const calc = () => {
             }
 
             if (typeValue && calcArea.value) {
-                result = typeValue * materialValue * calcArea.value
+                result = typeValue * materialValue * calcArea.value * 100
                 animate({
                     duration: 100,
                     timing(timeFraction) {

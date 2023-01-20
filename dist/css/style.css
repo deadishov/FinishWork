@@ -1902,10 +1902,15 @@ input.error {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+.benefits-inner {
+  display: flex;
+  justify-content: center;
+}
+
 .benefits-wrap {
   display: flex;
   justify-content: space-between;
-  margin: 0 0 0 95px;
+  margin: 0 0 0 390px;
 }
 
 .benefits__item {
@@ -1929,10 +1934,6 @@ input.error {
 
 .benefits__arrow>img {
   width: 100%;
-}
-
-.slide-active {
-  opacity: 1;
 }
 
 .services-arrows {
@@ -1981,10 +1982,19 @@ input.error {
   transform: rotate(90deg);
 }
 
+@media (min-width: 320px) {
+  .benefits-wrap {
+    width: 100%;
+    max-width: 576px;
+    /* margin: 0; */
+  }
+}
+
 @media (min-width: 576px) {
   .benefits-wrap {
     width: 100%;
     max-width: 576px;
+    /* margin: 0; */
   }
 }
 
