@@ -4,9 +4,15 @@ export const sendForm = ({ formName, calcData = [] }) => {
 
     form.addEventListener('input', (e) => {
         if (e.target === formElements[0]) {
+            if (e.target.classList.contains('error')) {
+                e.target.classList.toggle('error')
+            }
             e.target.value = e.target.value.replace(/[^a-zа-я-]/gi, '')
         } if (e.target === formElements[1]) {
-            e.target.value = e.target.value.replace(/[^\d+]/, '').substr(0, 16).trim()
+            if (e.target.classList.contains('error')) {
+                e.target.classList.toggle('error')
+            }
+            e.target.value = e.target.value.replace(/[^\d+]/, '').substr(0, 11).trim()
         }
     })
 
@@ -41,12 +47,27 @@ export const sendForm = ({ formName, calcData = [] }) => {
             formBody[key] = val
         })
 
-        if (formElements[0].value && formElements[1].value) {
-            sendData(formBody).then(data => {
-                console.log(data);
-            })
+        if (formElements[0].value.length > 1 && formElements[1].value.length > 5) {
+            sendData(formBody)
+            if (formElements[0].classList.contains('error')) {
+                formElements[0].classList.toggle('error')
+            } if (formElements[1].classList.contains('error')) {
+                formElements[1].classList.toggle('error')
+            }
         } else {
-            alert('Заполните оба поля формы!')
+            if (formElements[0].value.length < 2) {
+                formElements[0].classList.add('error')
+            } if (formElements[1].value.length < 6) {
+                formElements[1].classList.add('error')
+            } if (formElements[0].value.length > 1) {
+                if (formElements[0].classList.contains('error')) {
+                    formElements[0].classList.toggle('error')
+                }
+            } if (formElements[1].value.length > 5) {
+                if (formElements[1].classList.contains('error')) {
+                    formElements[1].classList.toggle('error')
+                }
+            }
         }
 
     })
