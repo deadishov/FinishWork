@@ -4,6 +4,20 @@ export const modal = () => {
     const overlay = document.querySelector('.overlay')
     const servModal = document.querySelector('.services-modal')
     const servButtons = document.querySelectorAll('.service-button')
+    const sertificateMini = document.querySelectorAll('.document-inner')
+    const sertifModal = document.querySelector('.sertificate-modal')
+
+
+
+    const openSertifModal = () => {
+        sertifModal.style.display = 'flex'
+        overlay.style.display = 'block'
+    }
+
+    const closeSertifModal = () => {
+        sertifModal.style.display = 'none'
+        overlay.style.display = 'none'
+    }
 
 
     const openCallBack = () => {
@@ -37,12 +51,23 @@ export const modal = () => {
             if (e.target.classList.contains('services-modal__close') || e.target === overlay) {
                 closeServModal()
             }
+        } if (sertifModal.style.display === 'flex') {
+            if (e.target.classList.contains('close-doc') || e.target === overlay) {
+                closeSertifModal()
+            }
         }
     })
 
     servButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             openServModal()
+        })
+    })
+
+    sertificateMini.forEach(doc => {
+        doc.addEventListener('click', (e) => {
+            e.preventDefault()
+            openSertifModal()
         })
     })
 };
