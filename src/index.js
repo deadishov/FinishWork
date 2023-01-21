@@ -44,5 +44,7 @@ sendForm({
         }
     ]
 })
+sendForm({ formName: '.header-modal form[name=callback-form]' })
+sendForm({ formName: '.services-modal form[name=application-form]' })
 sliderServices()
 

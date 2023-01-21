@@ -2,6 +2,8 @@ export const sendForm = ({ formName, calcData = [] }) => {
     const form = document.querySelector(formName)
     const formElements = form.querySelectorAll('input')
 
+    console.log(form);
+
     form.addEventListener('input', (e) => {
         if (e.target === formElements[0]) {
             if (e.target.classList.contains('error')) {
@@ -15,6 +17,7 @@ export const sendForm = ({ formName, calcData = [] }) => {
             e.target.value = e.target.value.replace(/[^\d+]/, '').substr(0, 11).trim()
         }
     })
+
 
 
     const sendData = (data) => {
@@ -33,15 +36,17 @@ export const sendForm = ({ formName, calcData = [] }) => {
         const formData = new FormData(form)
         const formBody = {}
 
-        calcData.forEach(elem => {
-            if (document.querySelector('#calc')) {
-                const calcTotal = document.getElementById(elem.id)
+        if (calcData) {
+            calcData.forEach(elem => {
+                if (document.querySelector('#calc')) {
+                    const calcTotal = document.getElementById(elem.id)
 
-                if (calcTotal.value) {
-                    formBody[elem.id] = calcTotal.value + ' RUB'
+                    if (calcTotal.value) {
+                        formBody[elem.id] = calcTotal.value + ' RUB'
+                    }
                 }
-            }
-        })
+            })
+        }
 
         formData.forEach((val, key) => {
             formBody[key] = val
@@ -54,6 +59,9 @@ export const sendForm = ({ formName, calcData = [] }) => {
             } if (formElements[1].classList.contains('error')) {
                 formElements[1].classList.toggle('error')
             }
+            formElements.forEach(input => {
+                input.value = ''
+            })
         } else {
             if (formElements[0].value.length < 2) {
                 formElements[0].classList.add('error')
@@ -69,6 +77,5 @@ export const sendForm = ({ formName, calcData = [] }) => {
                 }
             }
         }
-
     })
 }
