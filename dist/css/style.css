@@ -953,7 +953,7 @@ p.services-image_mobile {
 .sertificate-modal {
   display: none;
   justify-content: center;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: fixed;
   height: 100%;
   top: 0;

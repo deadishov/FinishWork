@@ -1,3 +1,4 @@
+import { animate } from './helpers'
 export const modal = () => {
     const callBack = document.querySelector('.btn.btn-warning.btn-block.fancyboxModal')
     const callBackModal = document.querySelector('.header-modal')
@@ -11,6 +12,15 @@ export const modal = () => {
 
     const openSertifModal = () => {
         sertifModal.style.display = 'flex'
+        animate({
+            duration: 500,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                sertifModal.style.height = (progress * 100 + '%')
+            }
+        })
         overlay.style.display = 'block'
     }
 
