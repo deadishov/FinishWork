@@ -2,7 +2,6 @@ export const sendForm = ({ formName, calcData = [] }) => {
     const form = document.querySelector(formName)
     const formElements = form.querySelectorAll('input')
 
-    console.log(form);
 
     form.addEventListener('input', (e) => {
         if (e.target === formElements[0]) {
@@ -59,9 +58,8 @@ export const sendForm = ({ formName, calcData = [] }) => {
             } if (formElements[1].classList.contains('error')) {
                 formElements[1].classList.toggle('error')
             }
-            formElements.forEach(input => {
-                input.value = ''
-            })
+            formElements[0].value = ''
+            formElements[1].value = ''
         } else {
             if (formElements[0].value.length < 2) {
                 formElements[0].classList.add('error')

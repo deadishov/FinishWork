@@ -3,11 +3,12 @@ export const modal = () => {
     const callBack = document.querySelector('.btn.btn-warning.btn-block.fancyboxModal')
     const callBackModal = document.querySelector('.header-modal')
     const overlay = document.querySelector('.overlay')
+    const sliderBlock = document.querySelector('.row.swiper-wrapper')
     const servModal = document.querySelector('.services-modal')
-    const servButtons = document.querySelectorAll('.service-button')
     const sertificateMini = document.querySelectorAll('.document-inner')
     const sertifModal = document.querySelector('.sertificate-modal')
-
+    const form = document.querySelector('.services-modal form[name=application-form]')
+    const formElements = form.querySelectorAll('input')
 
 
     const openSertifModal = () => {
@@ -68,10 +69,15 @@ export const modal = () => {
         }
     })
 
-    servButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
+    sliderBlock.addEventListener('click', (e) => {
+        if (e.target.closest('.service-button')) {
+            const row = e.target.closest('.service-text').textContent.split('\n')
             openServModal()
-        })
+            if (formElements[3]) {
+                formElements[3].value = row.slice(1).shift().trim()
+                console.log(formElements[3].value.trim());
+            }
+        }
     })
 
     sertificateMini.forEach(doc => {
