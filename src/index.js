@@ -30,21 +30,39 @@ timer({
 })
 sendForm({
     formName: 'form[name=action-form]',
+    helpBlock: '.help-block',
     calcData: [
         {
             id: 'calc-total'
         }
-    ]
+    ],
 })
 sendForm({
     formName: 'form[name=action-form2]',
+    helpBlock: 'form[name=action-form2] .help-block',
     calcData: [
         {
             id: 'calc-total'
         }
-    ]
+    ],
 })
-sendForm({ formName: '.header-modal form[name=callback-form]' })
-sendForm({ formName: '.services-modal form[name=application-form]' })
+sendForm({
+    formName: '.header-modal form[name=callback-form]',
+    helpBlock: '.header-modal .help-block',
+    calcData: [
+        {
+            id: 'calc-total'
+        }
+    ],
+})
+sendForm({
+    formName: '.services-modal form[name=application-form]',
+    helpBlock: '.services-modal .help-block',
+    calcData: [
+        {
+            id: 'calc-total'
+        }
+    ],
+})
 sliderServices()
 
