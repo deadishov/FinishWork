@@ -9,9 +9,23 @@ export const modal = () => {
     const sertifModal = document.querySelector('.sertificate-modal')
     const form = document.querySelector('.services-modal form[name=application-form]')
     const formElements = form.querySelectorAll('input')
+    const scrollUpBtn = document.querySelector('.smooth-scroll')
+    const scroll = document.documentElement.scrollTop
 
+    const hideScrollBtn = () => {
+        scrollUpBtn.style.display = 'none'
+    }
+
+    const showScrollBtn = () => {
+        if (scroll > 710) {
+            scrollUpBtn.style.display = 'block'
+        } else {
+            scrollUpBtn.style.display = 'none'
+        }
+    }
 
     const openSertifModal = () => {
+        hideScrollBtn()
         sertifModal.style.display = 'flex'
         animate({
             duration: 500,
@@ -26,27 +40,32 @@ export const modal = () => {
     }
 
     const closeSertifModal = () => {
+        showScrollBtn()
         sertifModal.style.display = 'none'
         overlay.style.display = 'none'
     }
 
 
     const openCallBack = () => {
+        hideScrollBtn()
         callBackModal.style.display = 'block'
         overlay.style.display = 'block'
     }
 
     const closeCallBack = () => {
+        showScrollBtn()
         callBackModal.style.display = 'none'
         overlay.style.display = 'none'
     }
 
     const openServModal = () => {
+        hideScrollBtn()
         servModal.style.display = 'block'
         overlay.style.display = 'block'
     }
 
     const closeServModal = () => {
+        showScrollBtn()
         servModal.style.display = 'none'
         overlay.style.display = 'none'
     }
