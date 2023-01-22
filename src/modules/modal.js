@@ -12,6 +12,14 @@ export const modal = () => {
     const scrollUpBtn = document.querySelector('.smooth-scroll')
     const scroll = document.documentElement.scrollTop
 
+    const addClassOnBody = () => {
+        document.body.classList.add('overflow')
+    }
+
+    const removeBodyClass = () => {
+        document.body.classList.remove('overflow')
+    }
+
     const hideScrollBtn = () => {
         scrollUpBtn.style.display = 'none'
     }
@@ -25,6 +33,7 @@ export const modal = () => {
     }
 
     const openSertifModal = () => {
+        addClassOnBody()
         hideScrollBtn()
         sertifModal.style.display = 'flex'
         animate({
@@ -40,6 +49,7 @@ export const modal = () => {
     }
 
     const closeSertifModal = () => {
+        removeBodyClass()
         showScrollBtn()
         sertifModal.style.display = 'none'
         overlay.style.display = 'none'
@@ -47,24 +57,28 @@ export const modal = () => {
 
 
     const openCallBack = () => {
+        addClassOnBody()
         hideScrollBtn()
         callBackModal.style.display = 'block'
         overlay.style.display = 'block'
     }
 
     const closeCallBack = () => {
+        removeBodyClass()
         showScrollBtn()
         callBackModal.style.display = 'none'
         overlay.style.display = 'none'
     }
 
     const openServModal = () => {
+        addClassOnBody()
         hideScrollBtn()
         servModal.style.display = 'block'
         overlay.style.display = 'block'
     }
 
     const closeServModal = () => {
+        removeBodyClass()
         showScrollBtn()
         servModal.style.display = 'none'
         overlay.style.display = 'none'

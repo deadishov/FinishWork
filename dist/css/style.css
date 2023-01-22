@@ -2,10 +2,6 @@ html {
   height: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   font-family: "NeoSansCyr-Regular", sans-serif;
   line-height: 150%;
@@ -13,6 +9,14 @@ body {
   height: 100%;
   font-weight: 300;
   color: #4f686e;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.overflow::-webkit-scrollbar {
+  display: none;
 }
 
 h2 span {
